@@ -1,0 +1,488 @@
+/* Dealt palette and type: white-link-blue with Red Hat Display / Red Hat Text. */
+:root {
+  --p-bg: #ffffff;
+  --p-surface: #f4f4f4;
+  --p-ink: #111111;
+  --p-muted: #6b6b6b;
+  --p-accent: #1a4be0;
+  --p-accent-ink: #ffffff;
+  --p-action: #1a4be0;
+  --p-action-ink: #ffffff;
+  --p-inv-bg: #111111;
+  --p-inv-surface: #1e1e1e;
+  --p-inv-ink: #ffffff;
+  --p-inv-muted: #9a9a9a;
+  --p-inv-accent: #ffffff;
+  --p-inv-accent-ink: #111111;
+  --p-inv-action: #ffffff;
+  --p-inv-action-ink: #111111;
+  --font-display: "Red Hat Display", system-ui, sans-serif;
+  --font-text: "Red Hat Text", system-ui, sans-serif;
+  --display-weight: 400;
+  --display-tracking: -0.025em;
+  --display-tracking-xl: -0.035em;
+}
+
+/* Page-specific composition. The dealt layout, motion, controls, and icons stay in the skill assets. */
+.nav__name-short {
+  display: none;
+}
+
+.hero--word .ly-word {
+  display: inline;
+  margin: 0;
+  overflow: visible;
+  vertical-align: baseline;
+}
+
+.hero--word .ly-word > span {
+  display: inline;
+  padding: 0;
+  background: none;
+  white-space: normal;
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: max(3px, 0.05em);
+  text-underline-offset: 0.09em;
+}
+
+/* The statement is the section's voice, set as a lead line rather than a second page heading. */
+.statement .mo-wh__text {
+  font: var(--display-weight) clamp(30px, 3.6vw, 38px)/1.3 var(--font-display);
+  letter-spacing: var(--display-tracking);
+}
+
+/* Every split follows the hero's six-column text / five-column detail grid. */
+.section .split {
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.split__aside {
+  grid-column: 1 / span 6;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+}
+
+.split__body {
+  grid-column: 8 / -1;
+  min-width: 0;
+}
+
+/* The data panels are the split's right column, so each one is a card of its own. */
+.section--education .split__body,
+.section--record .split__body {
+  align-self: stretch;
+}
+
+.split__aside .section-head {
+  margin-bottom: var(--s-6);
+}
+
+.rows .rows__name small {
+  display: block;
+  margin-top: var(--s-1);
+  color: var(--muted);
+  font-size: var(--t-small);
+  font-weight: 400;
+}
+
+.education-list .rows__name {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+/* Real résumé data provides the visuals: no stock portraits or fabricated product screens. */
+.data-panel {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 300px;
+  padding: var(--s-6);
+  border-top: 2px solid var(--accent);
+  background: var(--surface);
+}
+
+.data-panel__label {
+  color: var(--muted);
+  font-size: var(--t-small);
+  font-weight: 500;
+}
+
+.programme-panel__degree {
+  margin-top: var(--s-7);
+  color: var(--ink);
+  font: var(--display-weight) clamp(64px, 7vw, 112px)/1 var(--font-display);
+  letter-spacing: var(--display-tracking-xl);
+}
+
+.programme-panel__degree span {
+  display: block;
+  color: var(--accent);
+}
+
+.programme-panel__course {
+  max-width: 26ch;
+  margin-top: var(--s-5);
+  font-size: var(--t-card);
+  line-height: 1.35;
+}
+
+.data-panel__facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--s-4);
+  margin-top: auto;
+  padding-top: var(--s-5);
+  border-top: 1px solid var(--line);
+}
+
+.data-panel__facts > div {
+  display: grid;
+  gap: var(--s-1);
+}
+
+.data-panel__facts dt {
+  color: var(--muted);
+  font-size: var(--t-small);
+}
+
+.data-panel__facts dd {
+  margin: 0;
+  font-weight: 500;
+}
+
+.rank-panel__number {
+  margin-top: var(--s-6);
+  color: var(--accent);
+  font: var(--display-weight) clamp(104px, 12vw, 180px)/1 var(--font-display);
+  letter-spacing: var(--display-tracking-xl);
+}
+
+.rank-panel__caption {
+  margin-top: var(--s-4);
+  font: var(--display-weight) var(--t-h3)/1.2 var(--font-display);
+  letter-spacing: var(--display-tracking);
+}
+
+.rank-panel .data-panel__facts {
+  margin-top: auto;
+}
+
+.data-panel__note {
+  margin-top: var(--s-4);
+  color: var(--muted);
+  font-size: var(--t-label);
+  line-height: 1.45;
+}
+
+.record-award {
+  padding-bottom: var(--s-6);
+  border-bottom: 1px solid var(--line);
+}
+
+.record-award h3 {
+  margin-top: var(--s-4);
+}
+
+.record-award p:last-child {
+  max-width: 42ch;
+  margin-top: var(--s-4);
+}
+
+.record-leadership {
+  margin-top: var(--s-6);
+}
+
+/* The tools and certifications form one real, static profile fragment. */
+.section--skills .split__aside {
+  display: block;
+}
+
+.section--skills .split__aside > h3,
+.certifications h3,
+.skills-panel > h3 {
+  margin-bottom: var(--s-4);
+}
+
+.skills-list > li {
+  padding-block: var(--s-3);
+}
+
+.skills-list > li:first-child {
+  padding-top: 0;
+}
+
+.skills-panel {
+  padding-block: var(--s-5);
+  border-top: 2px solid var(--accent);
+  background: var(--surface);
+}
+
+.skills-panel .ic-row {
+  gap: var(--s-4);
+  padding-block: var(--s-4);
+}
+
+.skills-panel .ic-row:first-child {
+  padding-top: 0;
+}
+
+.skills-panel .ic-tile {
+  --tile: 48px;
+}
+
+.tool-copilot {
+  margin-block: var(--s-3) var(--s-6);
+}
+
+.certifications {
+  margin-top: var(--s-6);
+}
+
+/* Small laptops: the same split, compacted so each section still fits one 768px screen. */
+@media (min-width: 1024px) and (max-width: 1439px) {
+  main > .section:not(.hero),
+  footer.closing {
+    --padt: 96px;
+    --padb: 64px;
+  }
+
+  .split__aside .section-head {
+    margin-bottom: var(--s-5);
+  }
+
+  .data-panel {
+    min-height: 0;
+    padding: var(--s-5);
+  }
+
+  .rank-panel__caption {
+    margin-top: var(--s-3);
+  }
+
+  .skills-list > li {
+    padding-block: var(--s-2);
+  }
+
+  .skills-panel .ic-row {
+    padding-block: var(--s-3);
+  }
+
+  .tool-copilot {
+    margin-block: var(--s-2) var(--s-5);
+  }
+
+  .certifications {
+    margin-top: var(--s-5);
+  }
+}
+
+/* Tablet: preserve the shared split and give the footer three equal detail columns. */
+@media (min-width: 640px) and (max-width: 1023px) {
+  .data-panel {
+    min-height: 420px;
+    padding: var(--s-5);
+  }
+
+  .programme-panel__degree {
+    font-size: clamp(64px, 9vw, 88px);
+  }
+
+  .rank-panel__number {
+    font-size: clamp(104px, 16vw, 144px);
+  }
+
+  .education-list > li {
+    padding-block: var(--s-4);
+  }
+
+  .footer .closing__links > .grid > .footer__profile {
+    grid-column: 1 / -1;
+  }
+
+  .footer .closing__links > .grid > .footer__col:not(.footer__profile) {
+    grid-column: auto / span 4;
+  }
+}
+
+@media (max-width: 1023px) {
+  .footer__col {
+    min-width: 0;
+  }
+
+  .footer__col a,
+  .footer__col li {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  .footer__legal {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: var(--s-2);
+  }
+}
+
+/* Phone: stack the same content without reserving empty screens. */
+@media (max-width: 639px) {
+  .section--education > .wrap,
+  .section--record > .wrap,
+  .section--skills > .wrap {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1fr);
+  }
+
+  .section .split {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1fr) minmax(0, 1fr);
+    row-gap: calc(var(--padt) + var(--padb) + var(--bar));
+  }
+
+  .split__aside,
+  .split__body {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-width: 0;
+    min-height: 0;
+  }
+
+  /* The records fill the first phone screen; the panel fills the second. */
+  .split__aside > .rows,
+  .split__aside > .record-leadership {
+    flex: 1 1 auto;
+  }
+
+  .split__aside > .rows > li {
+    flex: 1 1 auto;
+    align-content: center;
+  }
+
+  .split__aside .section-head {
+    margin-bottom: var(--s-5);
+  }
+
+  .data-panel {
+    flex: 1 1 auto;
+    min-height: 260px;
+    padding: var(--s-5);
+  }
+
+  .programme-panel__degree {
+    margin-top: var(--s-4);
+    font-size: 56px;
+  }
+
+  .programme-panel__degree span {
+    display: inline;
+  }
+
+  .programme-panel__course {
+    margin-top: var(--s-3);
+    font-size: 16px;
+  }
+
+  .data-panel__facts {
+    padding-top: var(--s-3);
+  }
+
+  .rank-panel__number {
+    margin-top: var(--s-4);
+    font-size: 88px;
+  }
+
+  .rank-panel__caption {
+    margin-top: var(--s-2);
+    font-size: 22px;
+  }
+
+  .rank-panel .data-panel__facts {
+    margin-top: auto;
+  }
+
+  .data-panel__note {
+    margin-top: var(--s-2);
+  }
+
+  .section h3 {
+    font-size: 22px;
+  }
+
+  .education-list > li {
+    padding-block: var(--s-3);
+  }
+
+  .record-award {
+    padding-bottom: 0;
+    border-bottom: 0;
+  }
+
+  .record-leadership {
+    margin-top: var(--s-5);
+  }
+
+  .skills-list > li {
+    padding-block: var(--s-3);
+  }
+
+  .skills-panel {
+    flex: 1 1 auto;
+    padding-block: var(--s-5);
+  }
+
+  .footer__lede {
+    text-wrap: pretty;
+  }
+
+  .footer .closing__links > .grid > .footer__col {
+    grid-column: auto / span 6;
+  }
+
+  .footer .closing__links > .grid > .footer__profile {
+    grid-column: 1 / -1;
+    order: 1;
+  }
+
+  .footer .closing__links > .grid > .footer__col:nth-child(3) {
+    grid-column: 1 / -1;
+    order: 2;
+  }
+
+  .footer .closing__links > .grid > .footer__col:nth-child(2) {
+    order: 3;
+  }
+
+  .footer .closing__links > .grid > .footer__col:nth-child(4) {
+    order: 4;
+  }
+}
+
+@media (max-width: 479px) {
+  .nav__name-full {
+    display: none;
+  }
+
+  .nav__name-short {
+    display: inline;
+  }
+}
+
+@media (max-width: 380px) {
+  .hero--word {
+    --ly-h1-word: 44px;
+  }
+}
+
+@media print {
+  .data-panel,
+  .skills-panel {
+    background: #ffffff;
+  }
+}
